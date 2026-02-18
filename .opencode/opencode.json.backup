@@ -1,74 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "dark",
-  "model": "z.ai/glm-4.7",
-  "default_agent": "Algorithm",
+  "model": "anthropic/claude-sonnet-4-5",
   "snapshot": true,
   "username": "Kheeran",
-
-  "permission": {
-    "*": "ask",
-    "read": {
-      "*": "allow",
-      "/": "ask"
-		},
-    "write": {
-      "*": "allow",
-      "/": "ask"
-		},
-    "edit": {
-      "*": "allow",
-      "/": "ask"
-		},
-    "bash": {
-      "*": "ask",
-      "bun *": "allow",
-      "ls *": "allow",
-      "git *": "allow",
-      "mkdir *": "allow",
-      "tree *": "allow",
-      "cat *": "allow",
-      "find *": "allow",
-      "grep *": "allow",
-      "awk *": "allow",
-      "sed *": "allow",
-      "curl *": "allow",
-      "wget *": "allow",
-      "jq *": "allow",
-      "wc *": "allow",
-      "scp *": "allow",
-      "ssh *": "allow",
-      "sleep *": "allow",
-      "file *": "allow",
-      "html2text *": "allow",
-      "xargs *": "allow"
-		},
-	"grep": "allow",
-	"glob": "allow",
-	"task": "allow",
-	"list": "allow",
-	"skill": "allow",
-	"patch": "allow",
-	"question": "allow",
-	"todoread": "allow",
-	"todowrite": "allow",
-	"webfetch": "allow",
-	"websearch": "allow",
-	"codesearch": "allow",
-	"external_directory": {
-		"*": "allow",
-		"/etc/": "ask",
-		"/bin/": "ask",
-		"/sbin/": "ask",
-		"/root/": "ask",
-		"/usr/bin/": "ask",
-		"/boot/": "ask",
-		"/dev/": "ask",
-		"/": "ask"
-		},
-	"lsp": "allow"
-  },
-
   "agent": {
     "Algorithm": {
       "model": "anthropic/claude-opus-4-6"
@@ -263,6 +198,7 @@
     }
   },
   "mcp": {
+  "mcp": {
     "httpx": {
       "type": "remote",
       "url": "https://httpx-mcp.danielmiessler.workers.dev",
@@ -290,6 +226,11 @@
       "environment": {
         "PLAYWRIGHT_MCP_EXTENSION_TOKEN": "{env:PLAYWRIGHT_MCP_EXTENSION_TOKEN}"
       },
+      "enabled": true
+    },
+    "paperless": {
+      "type": "local",
+      "command": ["bunx", "@nloui/paperless-mcp", "{env:PAPERLESS_URL}", "{env:PAPERLESS_TOKEN}"],
       "enabled": true
     },
     "n8n": {
