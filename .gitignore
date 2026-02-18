@@ -12,6 +12,9 @@ node_modules/
 *.log
 .DS_Store
 
+# Binaries
+.opencode/bin/*
+
 # Personal content (user customizes)
 .opencode/USER/*
 !.opencode/USER/README.md
