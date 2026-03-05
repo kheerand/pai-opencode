@@ -1,0 +1,29 @@
+{
+  "name": "paperless-client",
+  "version": "1.0.0",
+  "description": "TypeScript API client for Paperless-ngx document repository",
+  "type": "module",
+  "main": "src/PaperlessClient.ts",
+  "types": "src/PaperlessClient.ts",
+  "exports": {
+    ".": {
+      "import": "./src/PaperlessClient.ts",
+      "types": "./src/PaperlessClient.ts",
+      "default": "./src/PaperlessClient.ts"
+    }
+  },
+  "scripts": {
+    "build": "bun build src/PaperlessClient.ts --outfile=dist/index.js --format=esm --target=browser",
+    "test": "bun test"
+  },
+  "keywords": [
+    "paperless-ngx",
+    "document-management",
+    "api",
+    "typescript"
+  ],
+  "author": "Kheeran",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
