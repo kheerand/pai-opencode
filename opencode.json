@@ -1,23 +1,37 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "dark",
-  "model": "z.ai/glm-4.7",
+  "model": "z.ai/glm-5",
   "default_agent": "Algorithm",
   "snapshot": true,
   "username": "Kheeran",
 
+  "plugin": ["opencode-scheduler"],
+
   "permission": {
-    "*": "ask",
+    "*": "allow",
     "read": {
       "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
       "/": "ask"
 		},
     "write": {
       "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
       "/": "ask"
 		},
     "edit": {
       "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
       "/": "ask"
 		},
     "bash": {
@@ -38,9 +52,31 @@
       "wc *": "allow",
       "scp *": "allow",
       "ssh *": "allow",
+      "sort *": "allow",
       "sleep *": "allow",
       "file *": "allow",
       "html2text *": "allow",
+      "du *": "allow",
+      "echo *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "diff *": "allow",
+      "stat *": "allow",
+      "which *": "allow",
+      "type *": "allow",
+      "date *": "allow",
+      "whoami *": "allow",
+      "basename *": "allow",
+      "realpath *": "allow",
+      "env *": "allow",
+      "printenv *": "allow",
+      "id *": "allow",
+      "node *": "allow",
+      "touch *": "allow",
+      "cp *": "allow",
+      "tar *": "allow",
+      "zip *": "allow",
+      "unzip *": "allow",
       "xargs *": "allow"
 		},
 	"grep": "allow",
@@ -52,8 +88,8 @@
 	"question": "allow",
 	"todoread": "allow",
 	"todowrite": "allow",
-	"webfetch": "allow",
-	"websearch": "allow",
+	"webfetch *": "allow",
+	"websearch *": "allow",
 	"codesearch": "allow",
 	"external_directory": {
 		"*": "allow",
@@ -64,7 +100,11 @@
 		"/usr/bin/": "ask",
 		"/boot/": "ask",
 		"/dev/": "ask",
-		"/": "ask"
+		"/": "ask",
+    "/home/prowler/.opencode/*": "allow",
+    "/home/prowler/working_dir/*": "allow",
+    "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+    "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow"
 		},
 	"lsp": "allow"
   },
@@ -262,6 +302,7 @@
       }
     }
   },
+
   "mcp": {
     "httpx": {
       "type": "remote",

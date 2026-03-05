@@ -8,9 +8,9 @@ This file helps your AI understand who you are, your background, and your commun
 
 ## Basic Information
 
-**Name:** [Your name]
-**Location:** [City, Country]
-**Timezone:** [e.g., America/Los_Angeles]
+**Name:** Kheeran Dharmawardena
+**Location:** Mount Waverley, Victoria, Australia
+**Timezone:** Australia/Melbourne
 
 ---
 
@@ -65,11 +65,12 @@ This file helps your AI understand who you are, your background, and your commun
 ## Goals
 
 ### Short-term (This quarter)
-- [Goal 1]
-- [Goal 2]
+- Organise aged care support for my parents who are struggling to live indipendently.
+- Launch a dataspaces consultancy service and associated training and technology services
+- Start the redevelopment of investment property at Bellevue Ct, Mulgrave, Victoria
 
 ### Long-term (This year)
-- [Goal 1]
+- Have an influencial role in shaping the national data and information architecture in Australia underpinned by the dataspaces consultancy
 - [Goal 2]
 
 ---

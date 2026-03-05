@@ -1,9 +1,14 @@
 # Basic Information
 
 - **Name:** Kheeran
-- **Timezone:** Australia/Sydney
-- **AI Provider:** Anthropic
+- **Timezone:** Australia/Melbourne
+- **AI Provider:** Anthropic and Z.AI
 - **AI Profile:** anthropic
+
+- **Partner/Wife**: Jinani (aka Jini)
+- **Children**: Anaya (DOB: 29/08/2013), Ethan (DOB: 22/09/2004), Jade - deceased (DOB: 31/08/2007)
+- **Mother**: Vinitha (DOB: 26/04/1943)
+- **Father**: Granville (DOB: 19/12/1939)
 
 ---
 
