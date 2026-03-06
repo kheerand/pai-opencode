@@ -100,10 +100,23 @@ curl -s -X POST http://localhost:8888/notify \
 
 ## Journal Insertion Logic
 
-The table should be inserted:
-- After `## General stuff` section if it exists
-- Before the last few lines if no clear section
-- As a new section `## Fleeting Notes Review - YYYY-MM-DD`
+**Use the `DailyJournal:AppendSection` workflow for journal insertion.**
+
+Instead of writing directly to the journal file, call the DailyJournal skill:
+
+```
+DailyJournal:AppendSection
+  target_section: "general"
+  heading: "Fleeting Notes Review - YYYY-MM-DD"
+  content: [the generated FN review table]
+  date: YYYY-MM-DD (defaults to today)
+```
+
+This ensures:
+- Journal is auto-created if it doesn't exist
+- Content is placed correctly under `## General stuff`
+- Footer is preserved if already present
+- Duplicates are prevented (won't insert twice for same date)
 
 ---
 

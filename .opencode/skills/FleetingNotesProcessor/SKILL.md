@@ -98,9 +98,12 @@ User: "Show me unprocessed fleeting notes"
 ## Integration with Other Skills
 
 **Works with:**
+- **DailyJournal** - Uses `DailyJournal:AppendSection` to insert FN review tables into the daily journal (canonical integration point)
 - **Pkm** - Create notes, search vault, manage Zettels
 - **Telos** - Link to projects and goals
 - **Tasks** - Create actionable tasks from FNs
+
+**Journal Integration:** When inserting the FN review table, this skill MUST use the `DailyJournal:AppendSection` workflow instead of writing directly to the journal file. This ensures correct section placement and structural integrity.
 
 ---
 

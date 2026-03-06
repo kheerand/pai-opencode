@@ -39,11 +39,11 @@
     "profile": "anthropic"
   },
   "counts": {
-    "skills": 39,
-    "workflows": 187,
+    "skills": 35,
+    "workflows": 169,
     "plugins": 1,
     "signals": 0,
     "files": 57,
-    "updatedAt": "2026-03-06T01:26:31.016Z"
+    "updatedAt": "2026-02-23T22:40:14.529Z"
   }
 }

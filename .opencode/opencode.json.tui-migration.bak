@@ -1,0 +1,376 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "dark",
+  "model": "z.ai/glm-5",
+  "default_agent": "Algorithm",
+  "snapshot": true,
+  "username": "Kheeran",
+
+  "plugin": ["opencode-scheduler"],
+
+  "permission": {
+    "*": "allow",
+    "read": {
+      "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
+      "/": "ask"
+		},
+    "write": {
+      "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
+      "/": "ask"
+		},
+    "edit": {
+      "*": "allow",
+      "/home/prowler/.opencode/*": "allow",
+      "/home/prowler/working_dir/*": "allow",
+      "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+      "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow",
+      "/": "ask"
+		},
+    "bash": {
+      "*": "ask",
+      "bun *": "allow",
+      "ls *": "allow",
+      "git *": "allow",
+      "mkdir *": "allow",
+      "tree *": "allow",
+      "cat *": "allow",
+      "find *": "allow",
+      "grep *": "allow",
+      "awk *": "allow",
+      "sed *": "allow",
+      "curl *": "allow",
+      "wget *": "allow",
+      "jq *": "allow",
+      "wc *": "allow",
+      "scp *": "allow",
+      "ssh *": "allow",
+      "sort *": "allow",
+      "sleep *": "allow",
+      "file *": "allow",
+      "html2text *": "allow",
+      "du *": "allow",
+      "echo *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "diff *": "allow",
+      "stat *": "allow",
+      "which *": "allow",
+      "type *": "allow",
+      "date *": "allow",
+      "whoami *": "allow",
+      "basename *": "allow",
+      "realpath *": "allow",
+      "env *": "allow",
+      "printenv *": "allow",
+      "id *": "allow",
+      "node *": "allow",
+      "touch *": "allow",
+      "cp *": "allow",
+      "tar *": "allow",
+      "zip *": "allow",
+      "unzip *": "allow",
+      "xargs *": "allow"
+		},
+	"grep": "allow",
+	"glob": "allow",
+	"task": "allow",
+	"list": "allow",
+	"skill": "allow",
+	"patch": "allow",
+	"question": "allow",
+	"todoread": "allow",
+	"todowrite": "allow",
+	"webfetch *": "allow",
+	"websearch *": "allow",
+	"codesearch": "allow",
+	"external_directory": {
+		"*": "allow",
+		"/etc/": "ask",
+		"/bin/": "ask",
+		"/sbin/": "ask",
+		"/root/": "ask",
+		"/usr/bin/": "ask",
+		"/boot/": "ask",
+		"/dev/": "ask",
+		"/": "ask",
+    "/home/prowler/.opencode/*": "allow",
+    "/home/prowler/working_dir/*": "allow",
+    "/home/prowler/kheer/Dropbox/PKM/*": "allow",
+    "/mnt/c/Users/kheer/Dropbox/PKM/*": "allow"
+		},
+	"lsp": "allow"
+  },
+
+  "agent": {
+    "Algorithm": {
+      "model": "anthropic/claude-opus-4-6"
+    },
+    "Architect": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "Engineer": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "general": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "explore": {
+      "model": "anthropic/claude-haiku-4-5"
+    },
+    "Intern": {
+      "model": "anthropic/claude-haiku-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-sonnet-4-5"
+        }
+      }
+    },
+    "Writer": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "DeepResearcher": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "GeminiResearcher": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "GrokResearcher": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "PerplexityResearcher": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "CodexResearcher": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "QATester": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "Pentester": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "Designer": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    },
+    "Artist": {
+      "model": "anthropic/claude-sonnet-4-5",
+      "model_tiers": {
+        "quick": {
+          "model": "anthropic/claude-haiku-4-5"
+        },
+        "standard": {
+          "model": "anthropic/claude-sonnet-4-5"
+        },
+        "advanced": {
+          "model": "anthropic/claude-opus-4-6"
+        }
+      }
+    }
+  },
+
+  "mcp": {
+    "httpx": {
+      "type": "remote",
+      "url": "https://httpx-mcp.danielmiessler.workers.dev",
+      "headers": {
+        "x-api-key": "{env:HTTPX_API_KEY}"
+      },
+      "enabled": false
+    },
+    "brightdata": {
+      "type": "local",
+      "command": ["bunx", "@brightdata/mcp"],
+      "environment": {
+        "API_TOKEN": "{env:BRIGHTDATA_API_KEY}"
+      },
+      "enabled": true
+    },
+    "Ref": {
+      "type": "local",
+      "command": ["bunx", "@refdotai/mcp"],
+      "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["bunx", "@playwright/mcp@latest", "--extension"],
+      "environment": {
+        "PLAYWRIGHT_MCP_EXTENSION_TOKEN": "{env:PLAYWRIGHT_MCP_EXTENSION_TOKEN}"
+      },
+      "enabled": true
+    },
+    "n8n": {
+      "type": "local",
+      "command": ["bunx", "n8n-mcp"],
+      "environment": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "",
+        "N8N_API_URL": "{env:N8N_API_URL}",
+        "N8N_API_KEY": "{env:N8N_API_KEY}"
+      },
+      "enabled": true
+    },
+    "supabase": {
+      "type": "local",
+      "command": ["bunx", "-y", "@aliyun-rds/supabase-mcp-server"],
+      "environment": {
+        "SUPABASE_URL": "{env:SUPABASE_URL}",
+        "SUPABASE_ANON_KEY": "{env:SUPABASE_ANON_KEY}",
+        "SUPABASE_SERVICE_ROLE_KEY": "{env:SUPABASE_SERVICE_ROLE_KEY}"
+      },
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    "apify": {
+      "type": "local",
+      "command": ["bunx", "@apify/actors-mcp-server"],
+      "environment": {
+        "APIFY_TOKEN": "{env:APIFY_TOKEN}"
+      },
+      "enabled": true
+    }
+  }
+}

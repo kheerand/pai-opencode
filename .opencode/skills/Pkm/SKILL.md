@@ -114,9 +114,36 @@ User: "Create an architecture diagram for the auth system"
 → Provides template with initial shapes
 ```
 
-## Quick Reference
+## CLI Integration
 
-**Create notes by type:**
+**Prefer the ObsidianCli skill for all vault operations.** Load it with `SkillSearch('obsidiancli')`.
+
+The ObsidianCli skill provides:
+- **Official Obsidian CLI** (`obsidian` command) — 1st preference, requires Obsidian 1.12+ running
+- **notesmd-cli** — Headless fallback when Obsidian isn't running
+- Full command reference for create, read, search, daily notes, properties, tasks, tags, links, templates, and more
+
+**Quick examples with official CLI:**
+```bash
+# Create note with template
+obsidian vault=PKM create name="FN - Quick Idea" template=Fleeting open
+
+# Search vault
+obsidian vault=PKM search:context query="TypeScript patterns" format=json
+
+# Daily note
+obsidian vault=PKM daily:append content="- [ ] New task"
+
+# Properties
+obsidian vault=PKM property:set name=status value=done file="My Note"
+
+# Tasks
+obsidian vault=PKM tasks todo verbose
+```
+
+## Quick Reference (Direct File Ops)
+
+**Create notes by type (fallback when CLI unavailable):**
 ```bash
 # Fleeting note
 touch "PKM/Cards/FN - ${title}.md"

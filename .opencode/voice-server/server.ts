@@ -200,6 +200,19 @@ function resolveVoiceId(voiceId: string | null, agentName: string | null = null)
     return DEFAULT_VOICE_ID;
   }
 
+  // If using Google TTS but voice_id looks like an ElevenLabs ID (no hyphens, long hash),
+  // ignore it and use the default Google voice instead
+  if (TTS_PROVIDER === 'google') {
+    const isGoogleVoice = voiceId.startsWith('en-') || voiceId.startsWith('fr-') ||
+                          voiceId.startsWith('de-') || voiceId.startsWith('es-') ||
+                          voiceId.startsWith('pt-') || voiceId.startsWith('ja-') ||
+                          voiceId.startsWith('ko-') || voiceId.startsWith('zh-');
+    if (!isGoogleVoice) {
+      console.log(`ℹ️  voice_id "${voiceId}" is not a Google voice — using default: ${DEFAULT_VOICE_ID}`);
+      return DEFAULT_VOICE_ID;
+    }
+  }
+
   // Otherwise use the provided voiceId
   return voiceId;
 }
@@ -507,48 +520,39 @@ async function playAudioInternal(audioBuffer: ArrayBuffer): Promise<void> {
   await Bun.write(tempFile, audioBuffer);
   const volume = getVolumeSetting();
 
-  return new Promise((resolve, reject) => {
-    let player: string;
-    let args: string[];
+  let player: string;
+  let args: string[];
 
-    if (process.platform === 'darwin') {
-      player = '/usr/bin/afplay';
-      args = ['-v', volume.toString(), tempFile];
+  if (process.platform === 'darwin') {
+    player = '/usr/bin/afplay';
+    args = ['-v', volume.toString(), tempFile];
+  } else {
+    if (existsSync('/usr/bin/mpv')) {
+      player = '/usr/bin/mpv';
+      args = ['--no-terminal', '--volume=' + Math.round(volume * 100), tempFile];
+    } else if (existsSync('/usr/bin/mpg123')) {
+      player = '/usr/bin/mpg123';
+      args = ['-q', tempFile];
+    } else if (existsSync('/snap/bin/mpv')) {
+      player = '/snap/bin/mpv';
+      args = ['--no-terminal', '--volume=' + Math.round(volume * 100), tempFile];
     } else {
-      if (existsSync('/usr/bin/mpg123')) {
-        player = '/usr/bin/mpg123';
-        args = ['-q', tempFile];
-      } else if (existsSync('/usr/bin/mpv')) {
-        player = '/usr/bin/mpv';
-        args = ['--no-terminal', '--volume=' + (volume * 100), tempFile];
-      } else if (existsSync('/snap/bin/mpv')) {
-        player = '/snap/bin/mpv';
-        args = ['--no-terminal', '--volume=' + (volume * 100), tempFile];
-      } else {
-        console.warn('⚠️  No audio player found. Install mpg123 or mpv for audio playback.');
-        spawn('/bin/rm', [tempFile]);
-        resolve();
-        return;
-      }
+      console.warn('⚠️  No audio player found. Install mpg123 or mpv for audio playback.');
+      return;
     }
+  }
 
-    const proc = spawn(player, args);
-
-    proc.on('error', (error) => {
-      console.error('Error playing audio:', error);
-      spawn('/bin/rm', [tempFile]);
-      reject(error);
-    });
-
-    proc.on('exit', (code) => {
-      spawn('/bin/rm', [tempFile]);
-      if (code === 0 || code === null) {
-        resolve();
-      } else {
-        reject(new Error(`${player} exited with code ${code}`));
-      }
-    });
-  });
+  console.log(`▶️  Playing: ${player} with volume ${Math.round(volume * 100)}%`);
+  const proc = Bun.spawn([player, ...args]);
+  const exitCode = await proc.exited;
+  console.log(`✅ Playback complete (exit: ${exitCode})`);
+  
+  // Cleanup async
+  setTimeout(() => {
+    try {
+      require('fs').unlinkSync(tempFile);
+    } catch { }
+  }, 100);
 }
 
 // macOS Say playback — queued like other audio to prevent overlap
